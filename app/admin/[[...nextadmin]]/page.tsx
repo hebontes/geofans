@@ -1,29 +1,30 @@
-import {NextAdmin, PageProps, PromisePageProps} from "@premieroctet/next-admin";
-import { getNextAdminProps } from "@premieroctet/next-admin/appRouter";
+import {NextAdmin, PromisePageProps,} from "@premieroctet/next-admin";
+import {getNextAdminProps } from "@premieroctet/next-admin/appRouter";
 import {prisma} from "@/lib/prisma"; // .css file containing tailiwnd rules
 
 export default async function AdminPage({
                                             params,
                                             searchParams,
-                                        }: PromisePageProps) {
-    // In Next 15, these are asynchronous.
-    // So you must call them as functions and await the result:
-    const rawParams = await params;
-    const rawSearchParams = await searchParams;
+                                        }: PromisePageProps) { // or PromisePageProps for Next 15+
+    // await params
+    // await searchParams
+    // await basePath
+    const searchParamss = await searchParams
+    if(!searchParamss){
+        return null
+    }
 
-    // Destructure your route parameters
-    const { nextadmin } = rawParams;
-
-    // Now you can safely pass them to getNextAdminProps
+    const rawParams = await params
+    if(!rawParams){
+        return null
+    }
     const props = await getNextAdminProps({
-        params: nextadmin,
-        searchParams: rawSearchParams,
+        params: rawParams.nextadmin,
+        searchParams:searchParamss,
         basePath: "/admin",
         apiBasePath: "/api/admin",
         prisma,
-
         /*options*/
-
     });
 
     return <NextAdmin {...props}/>;
