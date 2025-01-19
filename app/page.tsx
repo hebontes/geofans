@@ -37,6 +37,13 @@ export default function Home() {
           <li className="mb-2">
             Visit{" "}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
+              <a href={"/login"}>src/app/login/page.tsx</a>
+            </code>
+            .
+          </li>
+          <li className="mb-2">
+            Visit{" "}
+            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
               <a href={"/register"}>src/app/register/page.tsx</a>
             </code>
             .

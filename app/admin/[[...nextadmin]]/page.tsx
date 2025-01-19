@@ -21,7 +21,9 @@ export default async function AdminPage({
         basePath: "/admin",
         apiBasePath: "/api/admin",
         prisma,
+
         /*options*/
+
     });
 
     return <NextAdmin {...props}/>;
