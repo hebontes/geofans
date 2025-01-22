@@ -1,3 +1,4 @@
+"use client"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -9,25 +10,26 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import {prisma} from "@/lib/prisma";
+import createUserAction from "@/actions/createUserAction";
+import {useActionState} from "react";
+import LoginButton from "@/app/login/LoginButton";
 
+
+const initialState = {
+  message: "Awaiting for user input"
+}
 export  function LoginForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
 
-  async function createUserAction(formData: FormData) {
-    "use server";
-    const email = formData.get("email") as string;
-    const username = formData.get("username") as string;
+  const [state, formAction] = useActionState(createUserAction, initialState);
 
-    // do something with Prisma:
-    await prisma.user.create({ data: { name:username, username,email } });
-
-    // optional revalidate or redirect
-  }
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
+      <p>
+        {state?.message}
+      </p>
       <Card>
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Welcome back</CardTitle>
@@ -36,7 +38,7 @@ export  function LoginForm({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form action={createUserAction}>
+          <form action={formAction}>
             <div className="grid gap-6">
               <div className="flex flex-col gap-4">
                 <Button variant="outline" className="w-full">
@@ -71,7 +73,7 @@ export  function LoginForm({
                       type="email"
                       name="email"
                       placeholder="m@example.com"
-                      required
+                      // required
                   />
                 </div>
                 <div className="grid gap-2">
@@ -96,9 +98,7 @@ export  function LoginForm({
                   </div>
                   {/*<Input id="password" type="password" required/>*/}
                 </div>
-                <Button type="submit" className="w-full">
-                  Login
-                </Button>
+                <LoginButton/>
               </div>
               <div className="text-center text-sm">
                 Don&apos;t have an account?{" "}
