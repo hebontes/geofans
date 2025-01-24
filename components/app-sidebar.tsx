@@ -4,14 +4,13 @@ import * as React from "react"
 import {
   AudioWaveform,
   BookOpen,
-  Bot,
+  Bot, Building2,
   Command,
   Frame,
   GalleryVerticalEnd,
   Map,
   PieChart,
   Settings2,
-  SquareTerminal,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -52,21 +51,21 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "ქალაქების სია",
       url: "#",
-      icon: SquareTerminal,
+      icon: Building2,
       isActive: true,
       items: [
         {
-          title: "History",
+          title: "თბილისი",
           url: "#",
         },
         {
-          title: "Starred",
+          title: "ბათუმი",
           url: "#",
         },
         {
-          title: "Settings",
+          title: "რუსთავი",
           url: "#",
         },
       ],
@@ -77,34 +76,34 @@ const data = {
       icon: Bot,
       items: [
         {
-          title: "Genesis",
+          title: "ELITE",
           url: "#",
         },
         {
-          title: "Explorer",
+          title: "VIP",
           url: "#",
         },
         {
-          title: "Quantum",
+          title: "Basic",
           url: "#",
         },
       ],
     },
     {
-      title: "Documentation",
+      title: "Nationality",
       url: "#",
       icon: BookOpen,
       items: [
         {
-          title: "Introduction",
+          title: "Georgian",
           url: "#",
         },
         {
-          title: "Get Started",
+          title: "Russian",
           url: "#",
         },
         {
-          title: "Tutorials",
+          title: "English",
           url: "#",
         },
         {
