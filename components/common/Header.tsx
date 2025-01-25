@@ -12,6 +12,10 @@ export default function Header(){
             name: "Dashboard",
         },
         {
+            path: "/dashboard/detailed",
+            name: "Dashboard Detailed",
+        },
+        {
             path: "/admin",
             name: "Admin",
         },

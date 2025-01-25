@@ -1,7 +1,7 @@
-import type { Store } from "@/types/store"
-import {StoreCard} from "@/components/store/store.card";
+import type { StoreMin } from "@/types/store"
+import {StoreCard} from "@/components/store/store-card";
 
-const stores: Store[] = [
+const stores: StoreMin[] = [
     {
         id: 1,
         name: "Tech Haven",

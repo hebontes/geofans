@@ -2,10 +2,10 @@ import Image from "next/image"
 import { Star } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import type { Store } from "@/types/store"
+import type {StoreMin} from "@/types/store"
 
 interface StoreCardProps {
-    store: Store
+    store: StoreMin
 }
 
 export function StoreCard({ store }: StoreCardProps) {

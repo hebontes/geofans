@@ -5,6 +5,10 @@ export default function Home() {
     {
       path: "/dashboard",
       name: "Dashboard",
+    },
+    {
+      path: "/dashboard-detailed",
+      name: "Dashboard-detailed",
     }
   ]
   return (
