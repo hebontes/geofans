@@ -1,7 +1,7 @@
 import { GalleryVerticalEnd } from "lucide-react"
 
 import { LoginForm } from "@/components/login-form"
-import {getSession} from "@/lib/auh";
+import {getSession} from "@/lib/sessions";
 
 export default async function LoginPage() {
   // write sum function

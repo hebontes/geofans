@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import {login} from "@/actions/createUserAction";
+import {login} from "@/actions/auth";
 import {useActionState} from "react";
 import LoginButton from "@/app/login/LoginButton";
 
