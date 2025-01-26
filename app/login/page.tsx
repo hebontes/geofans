@@ -5,7 +5,7 @@ import {getSession} from "@/lib/auh";
 
 export default async function LoginPage() {
   // write sum function
-  const {data} = await getSession();
+  const data = await getSession();
 
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-6 md:p-10">

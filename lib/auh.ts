@@ -1,4 +1,4 @@
-import {jwtVerify, SignJWT} from "jose";
+import {JWTPayload, jwtVerify, SignJWT} from "jose";
 import {NextRequest, NextResponse} from "next/server";
 import {cookies} from "next/headers";
 
@@ -7,8 +7,11 @@ const key = new TextEncoder().encode(secretKey)
 
 export const expires_time = 10 * 1000
 
-export async function encrypt(payload: any) {
+interface Payload extends JWTPayload {
+    expires: string | number | Date; // Adjust this type based on your expiration format
+}
 
+export async function encrypt(payload: Payload) {
     return await new SignJWT(payload)
         .setProtectedHeader({alg: 'HS256'})
         .setIssuedAt()
@@ -44,7 +47,7 @@ export async function updateSession(request:NextRequest) {
     const res = NextResponse.next();
     res.cookies.set({
         name: 'session',
-        value: await encrypt(parsed),
+        value: await encrypt(parsed as Payload),
         httpOnly: true,
         expires: expires
     });
