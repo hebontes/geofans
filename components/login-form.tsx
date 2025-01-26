@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import createUserAction from "@/actions/createUserAction";
+import {login} from "@/actions/createUserAction";
 import {useActionState} from "react";
 import LoginButton from "@/app/login/LoginButton";
 
@@ -23,7 +23,7 @@ export  function LoginForm({
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
 
-  const [state, formAction] = useActionState(createUserAction, initialState);
+  const [state, formAction] = useActionState(login, initialState);
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
