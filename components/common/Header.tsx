@@ -24,7 +24,7 @@ export default function Header(){
             name: "login",
         },
         {
-            path: "/register",
+            path: "/signup",
             name: "register",
         },
         {

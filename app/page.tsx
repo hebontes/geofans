@@ -23,7 +23,7 @@ export default function Home() {
           priority
         />
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          {menu.map((item, index) => (
+          {menu.map((item) => (
               <li className="mb-2" key={item.path}>
                 Visit{" "}
                 <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
@@ -63,7 +63,7 @@ export default function Home() {
           <li className="mb-2">
             Visit{" "}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              <a href={"/register"}>src/app/register/page.tsx</a>
+              <a href={"/signup"}>src/app/signup/page.tsx</a>
             </code>
             .
           </li>

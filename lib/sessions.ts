@@ -35,7 +35,8 @@ export async function encrypt(payload: Payload) {
         .sign(key)
 }
 
-export async function decrypt(session: string) {
+export async function decrypt(session: string | undefined) {
+    if(!session) return null
 
     try {
         const {payload} = await jwtVerify(session, key, {
