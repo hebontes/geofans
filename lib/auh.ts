@@ -5,14 +5,16 @@ import {cookies} from "next/headers";
 const secretKey = process.env.SESSION_SECRET || ''
 const key = new TextEncoder().encode(secretKey)
 
-export const expires = new Date(Date.now() + 10 * 1000)
+export const expires_time = 10 * 1000
 
-export async function encrypt(payload: {data:Record<string, unknown>; expires:Date}) {
-    return await new SignJWT(payload.data)
+export async function encrypt(payload: any) {
+
+    return await new SignJWT(payload)
         .setProtectedHeader({alg: 'HS256'})
         .setIssuedAt()
         .setExpirationTime(payload.expires)
         .sign(key)
+
 }
 
 export async function decrypt(input:string) {
@@ -26,7 +28,7 @@ export async function decrypt(input:string) {
 export async function getSession(){
     const cookieStore = await cookies()
     const session = cookieStore.get('session')?.value
-    if(!session) return null;
+    if(!session) return {data:null};
 
     return await decrypt(session)
 }
@@ -36,7 +38,8 @@ export async function updateSession(request:NextRequest) {
 
     // Refresh the session so it doesn't expire
     const parsed = await decrypt(session);
-    parsed.exp = Math.floor(expires.getTime() / 1000);
+    const expires = new Date(Date.now() + expires_time)
+    parsed.expires = expires
 
     const res = NextResponse.next();
     res.cookies.set({

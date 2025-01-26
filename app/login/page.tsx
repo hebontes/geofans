@@ -1,9 +1,11 @@
 import { GalleryVerticalEnd } from "lucide-react"
 
 import { LoginForm } from "@/components/login-form"
+import {getSession} from "@/lib/auh";
 
-export default function LoginPage() {
+export default async function LoginPage() {
   // write sum function
+  const {data} = await getSession();
 
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-6 md:p-10">
@@ -16,6 +18,9 @@ export default function LoginPage() {
         </a>
         <LoginForm />
       </div>
+      <pre>
+        {JSON.stringify(data, null, 2)}
+      </pre>
     </div>
   )
 }
