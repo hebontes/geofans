@@ -16,7 +16,7 @@ export async function logout() {
 export async function signup(state: FormState, formData: FormData) {
     // Previous steps:
     // 1. Validate form fields
-    // 3. Insert the user into the database or call an Library API
+    // 3. Insert the user into the database or call a Library API
     const email = formData.get("email") as string;
     const username = formData.get("username") as string;
 
