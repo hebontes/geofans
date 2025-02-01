@@ -12,10 +12,10 @@ interface Payload extends JWTPayload {
     expires: string | number | Date; // Adjust this type based on your expiration format
 }
 
-export async function createSession(userId: string) {
+export async function createSession(username: string) {
     // Create the session
     const expires = new Date(Date.now() + expires_time)
-    const session = await encrypt({userId, expires})
+    const session = await encrypt({username, expires})
 
     // Save the session in cookie
     const cookieStore = await cookies()
