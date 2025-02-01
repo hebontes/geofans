@@ -22,13 +22,13 @@ export async function middleware(req: NextRequest){
     }
 
     // 5. Redirect to /admin if the user is authenticated
-    if (
-        isPublicRoute &&
-        session?.username &&
-        !req.nextUrl.pathname.startsWith('/admin')
-    ) {
-        return NextResponse.redirect(new URL('/admin', req.nextUrl))
-    }
+    // if (
+    //     isPublicRoute &&
+    //     session?.username &&
+    //     !req.nextUrl.pathname.startsWith('/admin')
+    // ) {
+    //     return NextResponse.redirect(new URL('/admin', req.nextUrl))
+    // }
 
     // return NextResponse.next()
 
