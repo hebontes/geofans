@@ -51,7 +51,7 @@ const data = {
   ],
   navMain: [
     {
-      title: "ქალაქების სია",
+      title: "ქალაქები",
       url: "#",
       icon: Building2,
       isActive: true,

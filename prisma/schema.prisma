@@ -29,17 +29,32 @@ model Post {
 }
 
 model Profile {
-  id     Int     @id @default(autoincrement())
-  bio    String?
-  user   User    @relation(fields: [userId], references: [id])
-  userId Int     @unique
+  id           Int       @id @default(autoincrement())
+  bio          String?
+  displayName  String?
+  phoneNumber  Int?
+  suffix       Int?
+  user         User      @relation(fields: [userId], references: [id])
+  userId       Int       @unique
+  premiumType  String    @default("FREE") // FREE, VIP, SUPER_VIP, ELITE
+  visitcount   Int       @default(0)
+  dailyVisits  Int       @default(0)
+  weeklyVisits Int       @default(0)
+  lastActive   DateTime?
+  visits       Visit[]
 }
 
 model User {
   id       Int      @id @default(autoincrement())
   email    String   @unique
   username String   @unique
-  name     String?
-  posts    Post[]
   profile  Profile?
+  Post     Post[]
+}
+
+model Visit {
+  id        Int      @id @default(autoincrement())
+  profile   Profile  @relation(fields: [profileId], references: [id])
+  profileId Int
+  visitedAt DateTime @default(now())
 }
