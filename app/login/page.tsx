@@ -1,12 +1,12 @@
 import { GalleryVerticalEnd } from "lucide-react"
 
 import { LoginForm } from "@/components/login-form"
-import {getSession} from "@/lib/sessions";
+import {getUser, verifySession} from "@/lib/dal";
 
 export default async function LoginPage() {
   // write sum function
-  const data = await getSession();
-
+  const user = await getUser();
+  console.log(user)
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-6 md:p-10">
       <div className="flex w-full max-w-sm flex-col gap-6">
@@ -19,7 +19,7 @@ export default async function LoginPage() {
         <LoginForm />
       </div>
       <pre>
-        {JSON.stringify(data, null, 2)}
+        {JSON.stringify(user, null, 2)}
       </pre>
     </div>
   )
