@@ -8,7 +8,6 @@ async function main() {
         create: {
             email: 'alice@prisma.io',
             username: 'alysanne',
-            name: 'Alice',
             posts: {
                 create: {
                     title: 'Check out Prisma with Next.js',
@@ -24,7 +23,6 @@ async function main() {
         create: {
             email: 'bob@prisma.io',
             username: 'bobgamer352',
-            name: 'Bob',
             posts: {
                 create: [
                     {
