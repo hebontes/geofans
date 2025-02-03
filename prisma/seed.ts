@@ -8,13 +8,13 @@ async function main() {
         create: {
             email: 'alice@prisma.io',
             username: 'alysanne',
-            posts: {
-                create: {
-                    title: 'Check out Prisma with Next.js',
-                    content: 'https://www.prisma.io/nextjs',
-                    published: true,
-                },
-            },
+            // posts: {
+            //     create: {
+            //         title: 'Check out Prisma with Next.js',
+            //         content: 'https://www.prisma.io/nextjs',
+            //         published: true,
+            //     },
+            // },
         },
     })
     const bob = await prisma.user.upsert({
@@ -23,20 +23,20 @@ async function main() {
         create: {
             email: 'bob@prisma.io',
             username: 'bobgamer352',
-            posts: {
-                create: [
-                    {
-                        title: 'Follow Prisma on Twitter',
-                        content: 'https://twitter.com/prisma',
-                        published: true,
-                    },
-                    {
-                        title: 'Follow Nexus on Twitter',
-                        content: 'https://twitter.com/nexusgql',
-                        published: true,
-                    },
-                ],
-            },
+            // posts: {
+            //     create: [
+            //         {
+            //             title: 'Follow Prisma on Twitter',
+            //             content: 'https://twitter.com/prisma',
+            //             published: true,
+            //         },
+            //         {
+            //             title: 'Follow Nexus on Twitter',
+            //             content: 'https://twitter.com/nexusgql',
+            //             published: true,
+            //         },
+            //     ],
+            // },
         },
     })
     console.log({ alice, bob })
