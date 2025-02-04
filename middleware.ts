@@ -2,7 +2,7 @@ import {NextRequest, NextResponse} from "next/server";
 import {decrypt, updateSession} from "@/lib/sessions";
 // 1. Specify protected and public routes
 const protectedRoutes = ['/admin']
-const publicRoutes = ['/login', '/signup', '/']
+const publicRoutes = ['/login', '/signup']
 
 export async function middleware(req: NextRequest){
     // 2. Check if the current route is protected or public
@@ -22,13 +22,12 @@ export async function middleware(req: NextRequest){
     }
 
     // 5. Redirect to /admin if the user is authenticated
-    // if (
-    //     isPublicRoute &&
-    //     session?.username &&
-    //     !req.nextUrl.pathname.startsWith('/admin')
-    // ) {
-    //     return NextResponse.redirect(new URL('/admin', req.nextUrl))
-    // }
+    if (
+        isPublicRoute &&
+        session?.username
+    ) {
+        return NextResponse.redirect(new URL('/', req.nextUrl))
+    }
 
     // return NextResponse.next()
 

@@ -1,11 +1,12 @@
 import { GalleryVerticalEnd } from "lucide-react"
 
 import { LoginForm } from "@/components/login-form"
-import {getUser, verifySession} from "@/lib/dal";
+import {getUser} from "@/lib/dal";
 
 export default async function LoginPage() {
   // write sum function
   const user = await getUser();
+
   console.log(user)
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-6 md:p-10">
