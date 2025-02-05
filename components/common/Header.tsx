@@ -21,6 +21,10 @@ export default function Header() {
             name: "Admin",
         },
         {
+            path: "/profile",
+            name: "Profile",
+        },
+        {
             path: "/login",
             name: "login",
         },
