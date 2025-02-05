@@ -4,6 +4,13 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 const images = [
     "https://fakeimg.pl/350x200/?text=World&font=lobste",
+    "https://fakeimg.pl/300/",
+    "https://fakeimg.pl/250x100/",
+    "https://fakeimg.pl/250x100/ff0000/",
+    "https://fakeimg.pl/350x200/ff0000/000",
+    "https://fakeimg.pl/350x200/ff0000,128/000,255",
+    "https://fakeimg.pl/350x200/?text=Hello",
+    "https://fakeimg.pl/200x100/?retina=1&text=こんにちは&font=noto",
 ]
 
 export function ImageGallery() {
@@ -26,8 +33,8 @@ export function ImageGallery() {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
+                    <CarouselPrevious/>
+                    <CarouselNext/>
                 </Carousel>
             </CardContent>
         </Card>
