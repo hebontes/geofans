@@ -15,11 +15,8 @@ import {
 } from "@/components/ui/sidebar"
 import {SearchForm} from "@/components/search-form";
 import {StoreList} from "@/components/store/store-list";
-import {verifySession} from "@/lib/dal";
 
 export default async function Page() {
-  const session = await verifySession()
-
   return (
     <SidebarProvider>
       <AppSidebar />

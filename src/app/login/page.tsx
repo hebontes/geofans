@@ -17,6 +17,7 @@ export default async function LoginPage() {
           </div>
           Acme Inc.
         </a>
+          {user && <div>{user.username}</div>}
         <LoginForm />
       </div>
       <pre>

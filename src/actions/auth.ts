@@ -37,10 +37,6 @@ export async function signup(state: FormState, formData: FormData) {
     redirect('/profile')
 }
 
-export interface FormState {
-    message: string
-}
-
 const sleep = (milliseconds: number) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
@@ -48,7 +44,7 @@ const sleep = (milliseconds: number) => {
 
 
 
-export async function login(prevState: { message: string }, formData: FormData) {
+export async function login(prevState: FormState, formData: FormData) {
     // Verify credentials && get the user
     // const email = formData.get("email") as string;
     const username = formData.get("username") as string;
